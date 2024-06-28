@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="timeline">
+    <form action="/good" id="good-form" method="post" enctype="multipart/form-data">
+      <div class="input-group">
+        <label for="g_name">이름</label>
+        <input type="text" id="good-name" name="name" required autofocus>
+      </div>
+      <div class="input-group">
+        <label for="g_nickname">닉네임</label>
+        <input type="text" id="g_nickname" name="nickname" required>
+      </div>
+      <div class="input-group">
+        <label for="g_price">티어</label>
+        <input type="number" id="good-price" name="tier" required>
+      </div>
+      <div class="input-group">
+        <label for="g_line">라인</label>
+        <input type="number" id="good-price" name="line" required>
+      </div>
+      <button id="join-btn" class="btn" type="submit">선수 등록</button>
+    </form>
+  </div>
+{% endblock %}

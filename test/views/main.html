@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="timeline">
+    <h2>경매 진행 목록</h2>
+    <table id="good-list">
+      <tr>
+        <th>이름</th>
+        <!--<th>이미지</th>-->
+        <th>닉네임</th>
+        <th>티어</th>
+        <th>라인</th>
+        <th>각오</th>
+      </tr>
+      {% for good in goods %}
+        <tr>
+          <td>{{good.name}}</td>
+          <!--<td>
+            <img src="/img/{{good.img}}">
+          </td>-->
+          <td>{{good.nickname}}</td>
+          <td>{{good.tier}}</td>
+          <td>{{good.line}}</td>
+          <td>{{good.text}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}!
