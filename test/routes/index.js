@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 const { isLoggedIn, isNotLoggedIn } = require('../middleware');
-const { renderMain, renderJoin, renderGood, createGood } = require('../controllers');
+const { renderMain, renderJoin, renderGood, renderlogin} = require('../controllers');
 
 const router = express.Router();
 
@@ -15,6 +15,7 @@ router.use((req, res, next) => {
 
 router.get('/', renderMain);
 router.get('/join', isNotLoggedIn, renderJoin);
+router.get('/login', isLoggedIn, renderlogin);
 router.get('/good', isLoggedIn, renderGood);
 
 /*try {
@@ -37,6 +38,5 @@ const upload = multer({
   }),
   limits: { fileSize: 5 * 1024 * 1024 },
 });
-router.post('/good', isLoggedIn, upload.single('img'), createGood);
 
 module.exports = router;

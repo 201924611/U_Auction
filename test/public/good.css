@@ -1,0 +1,108 @@
+body, html {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    width: 600px;
+    height: 400px;
+    background: black;
+    position: absolute;
+    left:500px;
+    top:0px;
+    border: 1px solid #1a0101;
+    text-align: center;
+}
+.product img {
+    width:200px;
+    height:250px;
+    position:absolute;
+    top:80px;
+    left:10px;
+}
+.ptext{
+    position:absolute;
+    top: 100px;
+    left: 250px;
+    text-align: left;
+    font-size: 18px;    
+    font-weight: bold;
+    
+}
+.potext{
+    height:100px;
+}
+.np{
+    position:relative;
+    top: 0px;
+    right: 0px;
+    width: 500px;
+    height: 100%;
+    background-color: rgb(198,204,229);
+    padding: 50px;
+    align-items: center;
+}
+.pr{
+    margin-top: 20px;
+    height: 50px;
+    font-size: 18px;    
+    font-weight: bold;
+}
+
+.next_btn{
+    display: inline-block;
+    background-color: #4b555f; /* 버튼 배경색 설정 */
+    color: white; /* 버튼 텍스트 색상 설정 */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px; /* 버튼 모서리 둥글게 설정 */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 배경색 변화 시 부드러운 효과 추가 */
+    position: absolute;
+    bottom: 50px;
+    right: 100px;
+    width: 100px;
+    height: 50px;
+}
+
+.end_auction{
+    display: inline-block;
+    background-color: #4b555f; /* 버튼 배경색 설정 */
+    color: white; /* 버튼 텍스트 색상 설정 */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px; /* 버튼 모서리 둥글게 설정 */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 배경색 변화 시 부드러운 효과 추가 */
+    position: absolute;
+    bottom: 50px;
+    right: 210px;
+    width: 100px;
+    height: 50px;
+}
+
+.all_bid{
+    display: inline-block;
+    background-color: #4b555f; /* 버튼 배경색 설정 */
+    color: white; /* 버튼 텍스트 색상 설정 */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px; /* 버튼 모서리 둥글게 설정 */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 배경색 변화 시 부드러운 효과 추가 */
+    position: absolute;
+    bottom: 50px;
+    right: 400px;
+    width: 100px;
+    height: 50px;
+}

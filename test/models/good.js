@@ -20,12 +20,13 @@ module.exports = class Good extends Sequelize.Model {
         allowNull: false,
       },
       text: {
-        type: Sequelize.STRING(20)
-      }
+        type: Sequelize.STRING(255)
+      },
     }, {
       sequelize,
-      timestamps: true,
-      paranoid: true,
+      underscored:false,
+      timestamps: false,
+      paranoid: false,
       modelName: 'Good',
       tableName: 'goods',
       charset: 'utf8',

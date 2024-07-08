@@ -1,0 +1,38 @@
+/* 전체 body에 대한 기본 스타일 */
+     /* 폼 요소들의 스타일 */
+     form {
+        width: 300px; /* 폼의 최대 너비 설정 */
+        background-color: #0f0b0b; /* 폼의 배경색 설정 */
+        padding: 10px;
+        border-radius: 8px; /* 폼의 테두리 모서리 둥글게 설정 */
+        box-shadow: 0 0 10px rgba(143, 118, 118, 0.1); /* 그림자 효과 추가 */
+        text-align: left;
+      }
+  
+      .input-group {
+        margin-bottom: 10px;
+      }
+  
+      label {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: #e7dada; /* 라벨 텍스트 색상 설정 */
+      }
+  
+      input[type="text"],
+      input[type="password"] {
+        width: 100%; /* 입력 필드 너비 100%로 설정 */
+        padding: 10px; /* 내부 여백 설정 */
+        border: 1px solid #ccc; /* 테두리 설정 */
+        border-radius: 7px; /* 입력 필드 모서리 둥글게 설정 */
+      }
+  
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        outline: none; /* 포커스시 기본 아웃라인 제거 */
+        border-color: #4CAF50; /* 포커스시 테두리 색상 변경 */
+        box-shadow: 0 0 5px #4CAF50; /* 포커스시 그림자 효과 추가 */
+      }
+      .btn:hover {
+        background-color: #45a049; /* 마우스 호버시 배경색 변경 */
+      }

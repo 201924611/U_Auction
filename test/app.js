@@ -7,6 +7,7 @@ const passport = require('passport');
 const nunjucks = require('nunjucks');
 const dotenv = require('dotenv');
 
+
 dotenv.config();
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
@@ -14,6 +15,12 @@ const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 
 const app = express();
+
+
+
+
+
+
 passportConfig();
 app.set('port', process.env.PORT || 8010);
 app.set('view engine', 'html');
@@ -58,6 +65,11 @@ app.use((req, res, next) => {
   next(error);
 });
 
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  next();
+});
+
 app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = process.env.NODE_ENV !== 'production' ? err : {};
@@ -68,5 +80,7 @@ app.use((err, req, res, next) => {
 app.listen(app.get('port'), () => {
   console.log(app.get('port'), '번 포트에서 대기중');
 });
+
+
 
 module.exports = app;

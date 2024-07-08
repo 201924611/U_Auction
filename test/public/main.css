@@ -1,19 +1,33 @@
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; height: 100%; }
+html, body { margin: 0; padding: 0; height: 100%;  }
 .btn {
   display: inline-block;
-  padding: 0 5px;
+  background-color: #8f9f90; /* 버튼 배경색 설정 */
+  color: white; /* 버튼 텍스트 색상 설정 */
+  padding: 5px 30px; /* 버튼 내부 여백 설정 */
+  text-align: center;
   text-decoration: none;
+  border: none;
+  border-radius: 4px; /* 버튼 모서리 둥글게 설정 */
   cursor: pointer;
-  border-radius: 4px;
-  background: white;
-  border: 1px solid silver;
-  color: crimson;
-  height: 37px;
-  line-height: 37px;
-  vertical-align: top;
-  font-size: 12px;
+  transition: background-color 0.3s ease; /* 배경색 변화 시 부드러운 효과 추가 */
 }
+.logout_btn {
+  display: inline-block;
+  background-color: rgb(198,204,229); /* 버튼 배경색 설정 */
+  color: white; /* 버튼 텍스트 색상 설정 */
+  padding: 5px 30px; /* 버튼 내부 여백 설정 */
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px; /* 버튼 모서리 둥글게 설정 */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* 배경색 변화 시 부드러운 효과 추가 */
+  position: absolute;
+  right: 10px;
+  top:10px;
+}
+
 input, textarea {
   border-radius: 4px;
   height: 37px;
@@ -45,12 +59,27 @@ input, textarea {
   border: 1px solid silver;
   background: yellow;
 }
-.user-name, .user-money {
+.user-name{
+  padding-top: 20px;
+  padding-right: 10px;
+  text-align: center;
+  width: 70%;
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 10px;
+  color: rgb(222,228,248);
+}
+.user-money {
+  width: 70%;
+  padding-right: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: rgb(119,153,255);
 }
 .timeline {
+  text-align: left;
   margin-top: 10px;
   width: 100%;
   display: inline-block;
@@ -67,3 +96,36 @@ input, textarea {
 .error-message { color: red; font-weight: bold; }
 #join-form, #good-form { padding: 10px; text-align: center; }
 footer { text-align: center; }
+
+.m-group {
+  margin-bottom: 15px;
+  width: 250px;
+  position: absolute;
+  left: 130px;
+  top: 130px;
+  text-align: left;
+
+ }
+#m-group label {  text-align: left; width: 50%; display: inline-block; }
+.m-group input {  width: 250px;}
+.sm {
+  height: 40px;
+  background-color: rgb(124,138,190); /* 버튼 배경색 설정 */
+  color: white; /* 버튼 텍스트 색상 설정 */
+  padding: 5px 30px; /* 버튼 내부 여백 설정 */
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px; /* 버튼 모서리 둥글게 설정 */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* 배경색 변화 시 부드러운 효과 추가 */
+  position: relative;
+  top : 10px;
+  left : 160px;
+}
+.user_price{
+  position:absolute;
+  top : 150px;
+  left: 350px;
+  width: 250px;
+}

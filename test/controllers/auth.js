@@ -19,7 +19,7 @@ exports.join = async (req, res, next) => {
       console.log('가입 성공')
     }
     // 5.로그인 화면
-    return res.redirect('./.');
+    return res.redirect('../');
   } catch (error) {
     console.error(error);
     return next(error);
@@ -40,13 +40,14 @@ exports.login = (req, res, next) => {
         console.error(loginError);
         return next(loginError);
       }
-      return res.redirect('/');
+
+      return res.redirect('/login');
     });
   })(req, res, next); // 미들웨어 내의 미들웨어에는 (req, res, next)를 붙입니다.
 };
 
 exports.logout = (req, res) => {
   req.logout(() => {
-    res.redirect('/');
+    res.redirect('../');
   });
 };

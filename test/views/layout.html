@@ -5,122 +5,96 @@
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/main.css">
-      <title>페이지 제목</title>
-  <style>
-    /* CSS 스타일링 */
-    body {
-      text-align: center; /* 텍스트 가운데 정렬 */
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+    <script src="/socket.io/socket.io.js"></script>
 
-    header {
-      background-color: #030c15; /* 배경색 설정 */
-      color: #fff; /* 텍스트 색상 설정 */
-      padding: 30px; /* 상하좌우 여백 설정 */
-      text-align: center; /* 텍스트 가운데 정렬 */
-    }
+    <script>
+      function notReload(event) {
+      if ((event.ctrlKey && (event.keyCode === 78 || event.keyCode === 82)) || event.keyCode === 116) {
+        event.preventDefault();
+        event.stopPropagation();
+        alert("새로고침키를 사용할 수 없습니다.");
+        }
+      }
+      document.addEventListener('keydown', notReload);
+    </script>
     
-    header img {
-      width: 200px; /* 이미지 너비 설정 */
-      height: auto; /* 이미지 높이 자동 설정 */
-      border-radius: 50%; 
-      margin-bottom: 0px; /* 이미지 아래 여백 설정 */
-    }
-  </style>
-   <title>로그인 폼</title>
-   <style>
-     /* 전체 body에 대한 기본 스타일 */
-     /* 폼 요소들의 스타일 */
-     form {
-       width: 300px; /* 폼의 최대 너비 설정 */
-       background-color: #0f0b0b; /* 폼의 배경색 설정 */
-       padding: 10px;
-       border-radius: 8px; /* 폼의 테두리 모서리 둥글게 설정 */
-       box-shadow: 0 0 10px rgba(143, 118, 118, 0.1); /* 그림자 효과 추가 */
-       text-align: left;
-     }
- 
-     .input-group {
-       margin-bottom: 10px;
-     }
- 
-     label {
-       display: inline-block;
-       margin-bottom: 10px;
-       color: #e7dada; /* 라벨 텍스트 색상 설정 */
-     }
- 
-     input[type="text"],
-     input[type="password"] {
-       width: 100%; /* 입력 필드 너비 100%로 설정 */
-       padding: 10px; /* 내부 여백 설정 */
-       border: 1px solid #ccc; /* 테두리 설정 */
-       border-radius: 7px; /* 입력 필드 모서리 둥글게 설정 */
-     }
- 
-     input[type="text"]:focus,
-     input[type="password"]:focus {
-       outline: none; /* 포커스시 기본 아웃라인 제거 */
-       border-color: #4CAF50; /* 포커스시 테두리 색상 변경 */
-       box-shadow: 0 0 5px #4CAF50; /* 포커스시 그림자 효과 추가 */
-     }
- 
-     .btn {
-       display: inline-block;
-       background-color: #8f9f90; /* 버튼 배경색 설정 */
-       color: white; /* 버튼 텍스트 색상 설정 */
-       padding: 5px 30px; /* 버튼 내부 여백 설정 */
-       text-align: center;
-       text-decoration: none;
-       border: none;
-       border-radius: 4px; /* 버튼 모서리 둥글게 설정 */
-       cursor: pointer;
-       transition: background-color 0.3s ease; /* 배경색 변화 시 부드러운 효과 추가 */
-     }
- 
-     .btn:hover {
-       background-color: #45a049; /* 마우스 호버시 배경색 변경 */
-     }
-   </style>
+    <link rel="stylesheet" href="/main.css">
+      
+
+    <title>페이지 제목</title>
+    <link rel="stylesheet" href="image.css">
+  
+    <title>로그인 폼</title>
+    <link rel="stylesheet" href="login.css">
+
+    <title>내화면</title>
+    <link rel="stylesheet" href="m.css">
+
+    <title>팀장</title>
+    <link rel="stylesheet" href="team.css">
+
+    <title>팀원</title>
+    <link rel="stylesheet" href="good.css">
+
+    <title>테이블 태그(아주 중요함)</title>
+
   </head>
   <body>
-    {% if not user or not user.id %}
-    <header>
-      <img src="/images/ulti.jpg" alt="manager">
-      <h1>얼티메이트 롤 멸망전</h1>
-      <p>경매</p>
-    </header>
-    {% endif %}
-    <div class="container">
-      <div class="profile-wrap">
+        <div class="container">
           {% if user and user.id %}
-          <div cont
-            <div class="user-name">안녕하세요 {{user.name}}님</div>
-            <div class="user-money">보유 자산: {{user.money}}원</div>
-            <input type="hidden" id="my-id" value="user.id">
-            <a href="/auth/logout" id="logout" class="btn">로그아웃</a>
-            <a href="/good" id="register" class="btn">상품 등록</a>
+            {% if user.name == '이태화' %}
+            <div class = "m" >
+              <div class="user-name">진행자 <span id = "user-name">{{user.name}}</span> 입니다</div>
+              <a href="/auth/logout" id="logout" class="logout_btn">로그아웃</a>
+             
+              <button id="next_btn" class="next_btn">다음상품</button>
+              
+              <button id="end_auction" class="end_auction">상품입찰시간종료</button>
+
+            </div> 
+            
+            
+            {% else %}
+            <div class = "m" >
+              <div class="user-name">안녕하세요 <span id = "user-name">{{user.name}}</span>님</div>
+              <div class="user-money">보유 자산은 &larr;</div>
+              <input type="hidden" id="my-id" value="user.id">
+              <a href="/auth/logout" id="logout" class="logout_btn">로그아웃</a>
+
+              <div class="m-group">
+                <label id = score for="password" style="color:rgb(119,153,255)">경매 점수</label>
+                <input type="number" id="auction_score" name="password"  required>
+                <button id="score_submit" class="sm" type="submit">입찰</button>
+              </div>
+              <div class="user_price">
+                <p style="color:white">현재 입찰가 : <span id = now_price> </span> </p>
+              </div>
+            </div>
+            {% endif %}
+         </div>   
           {% else %}
-            <form action="/auth/login" id="login-form" method="post">
-              <div class="input-group">
-                <label for="name">이름</label>
-                <input type="text" id="name" name="name" value="허진수" required autofocus>
-              </div>
-              <div class="input-group">
-                <label for="password">비밀번호</label>
-                <input type="password" id="password" name="password" value="1234" required>
-              </div>
-              <a href="/join" id="join" class="btn">회원가입</a>
-              <button id="login" class="btn" type="submit">로그인</button>
-            </form>
+          <div class = "grid-container"></div>
+          <img src="/images/ulti.jpg" alt="manager" class="centered-image">
+              <h1>얼티메이트 롤 멸망전</h1>
+              <p>경매</p>
+            <div class="profile-wrap">
+              <form action="/auth/login" id="login-form" method="post">
+                <div class="input-group">
+                  <label for="name">이름</label>
+                  <input type="text" id="name" name="name" required autofocus>
+                </div>
+                <div class="input-group">
+                  <label for="password">비밀번호</label>
+                  <input type="password" id="password" name="password" required>
+                </div>
+                <a href="/join" id="join" class="btn">회원가입</a>
+                <button id="login" class="btn" type="submit">로그인</button>
+                </form>
+            </div>
+          </div>
           {% endif %}
-      </div>
       {% block content %}
       {% endblock %}
-    </div>
     <script>
       window.onload = () => {
         if (new URL(location.href).searchParams.get('error')) {
@@ -128,5 +102,10 @@
         }
       };
     </script>
+      <script>
+
+    
+      </script>
+
   </body>
 </html>
